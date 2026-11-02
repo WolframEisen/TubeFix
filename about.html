@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <title>Über TubeFix</title>
+  <link rel="stylesheet" href="ui.css">
+</head>
+<body class="about">
+  <h1><img src="icons/icon128.png" alt="">TubeFix <span class="version" id="version"></span></h1>
+
+  <p>Eine kleine Vivaldi-Erweiterung, die YouTube übersichtlicher macht.</p>
+
+  <h2>Funktionen</h2>
+  <ul>
+    <li><strong>Genaues Upload-Datum</strong> unter dem Videotitel statt „vor 3 Jahren“.</li>
+    <li><strong>Datum in Videolisten</strong> (Startseite, Suche, Seitenleiste, Kanäle) statt der
+      relativen Angabe. Maus drüber zeigt Datum mit Uhrzeit.</li>
+    <li><strong>Auszug aus der Beschreibung</strong> unter jedem Video auf der Startseite.</li>
+    <li><strong>Längere Titel:</strong> Videotitel werden erst nach 4 statt 2 Zeilen abgeschnitten.</li>
+    <li><strong>Abonnentenzahl</strong> hinter dem Kanalnamen in den Videolisten.</li>
+    <li><strong>Bevorzugte Qualität:</strong> Videos starten in der gewählten Auflösung (oder der nächstniedrigeren).</li>
+    <li><strong>Originalton:</strong> Bei automatisch synchronisierten Videos wird auf die Originaltonspur umgeschaltet.</li>
+  </ul>
+
+  <h2>Einstellungen</h2>
+  <p>Klick auf das Erweiterungs-Symbol in der Leiste öffnet die Einstellungen:</p>
+  <ul>
+    <li>Datumsformat für Videolisten und für die Videoseite, wahlweise mit Uhrzeit</li>
+    <li>Abonnentenzahl ein/aus</li>
+    <li>Beschreibung auf der Startseite ein/aus und ihre Schriftgröße</li>
+    <li>Bevorzugte Qualität und Originalton</li>
+  </ul>
+  <p>Änderungen gelten sofort in allen offenen YouTube-Tabs.</p>
+
+  <h2>Wie es funktioniert</h2>
+  <ul>
+    <li>Datum und Beschreibung stammen aus YouTubes eigenen Videodaten. Abgefragt werden nur Videos, die
+      gerade sichtbar sind, höchstens 4 gleichzeitig.</li>
+    <li>Für die Abonnentenzahl wird pro Kanal eine zusätzliche Anfrage gestellt.</li>
+    <li>Bereits geladene Daten werden lokal im Browser zwischengespeichert (bis zu 3000 Videos,
+      Abonnentenzahlen eine Woche lang), damit sie beim nächsten Besuch sofort da sind.</li>
+    <li>Es werden keine Daten an andere Server als youtube.com geschickt.</li>
+  </ul>
+
+  <h2>Hinweise</h2>
+  <ul>
+    <li>Die relative Zeitangabe wird am Text erkannt. Das klappt mit YouTube auf Deutsch oder Englisch.</li>
+    <li>Shorts und laufende Livestreams bekommen kein Datum.</li>
+    <li>Qualität und Tonspur werden einmal pro Video beim Start gesetzt. Wählst du im Player selbst etwas
+      anderes, bleibt deine Wahl bestehen.</li>
+    <li>Kanäle, die ihre Abonnentenzahl verbergen, bekommen keine Anzeige.</li>
+    <li>Wenn YouTube sein Seitenlayout ändert, kann einzelnes vorübergehend nicht mehr greifen.</li>
+  </ul>
+
+  <script src="about.js"></script>
+</body>
+</html>

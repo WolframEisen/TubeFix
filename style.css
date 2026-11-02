@@ -1,0 +1,48 @@
+/* ===== Einstellungen ===== */
+:root {
+  --tfx-title-lines: 4; /* maximale Zeilen für Videotitel (YouTube-Standard: 2) */
+  --tfx-desc-lines: 3;  /* Zeilen aus der Beschreibung auf der Startseite */
+  --tfx-desc-size: 1.5rem; /* Schriftgröße der Beschreibung – wird über das Popup eingestellt */
+}
+
+/* ===== Videotitel nicht schon nach 2 Zeilen abschneiden ===== */
+#video-title,
+h3,
+h3 * {
+  -webkit-line-clamp: var(--tfx-title-lines) !important;
+  line-clamp: var(--tfx-title-lines) !important;
+  max-height: none !important;
+}
+
+/* ===== Watch-Seite: genaues Upload-Datum unter dem Titel ===== */
+#tfx-exact-date {
+  margin-top: 6px;
+  font-family: "Roboto", "Arial", sans-serif;
+  font-size: 1.4rem;
+  line-height: 2rem;
+  font-weight: 500;
+  color: var(--yt-spec-text-secondary, #aaa);
+}
+
+/* ===== Startseite: Auszug aus der Beschreibung unter den Infos ===== */
+div.tfx-desc.tfx-desc {
+  margin-top: 4px !important;
+  font-family: "Roboto", "Arial", sans-serif !important;
+  font-size: var(--tfx-desc-size) !important;
+  line-height: 1.35 !important;
+  color: var(--yt-spec-text-secondary, #aaa) !important;
+  white-space: normal !important;
+  display: -webkit-box !important;
+  -webkit-box-orient: vertical !important;
+  -webkit-line-clamp: var(--tfx-desc-lines) !important;
+  overflow: hidden !important;
+}
+div.tfx-desc.tfx-desc:empty {
+  display: none !important;
+}
+
+/* ===== Abonnentenzahl hinter dem Kanalnamen ===== */
+.tfx-subs {
+  white-space: nowrap;
+  opacity: 0.85;
+}
