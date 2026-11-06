@@ -10,6 +10,7 @@
   const DATE_CLASS = 'tfx-date';
   const DESC_CLASS = 'tfx-desc';
   const SUBS_CLASS = 'tfx-subs';
+  const WRAP_CLASS = 'tfx-wrap';
   const HOME_SELECTOR = 'ytd-browse[page-subtype="home"]';
   const ITEM_SELECTOR =
     'yt-lockup-view-model, ytd-rich-grid-media, ytd-video-renderer, ytd-grid-video-renderer, ytd-compact-video-renderer';
@@ -398,6 +399,20 @@
     }
   }
 
+  // Kanalname und Datum stehen in einer gemeinsamen Zeile (neues Layout)? Dann darf diese Zeile
+  // umbrechen, statt das Datum abzuschneiden – nötig, seit die Abonnentenzahl dazukommt.
+  function wrapMetaRow(item, name) {
+    const span = dateSpanOf(item);
+    if (!span || !name) return;
+    let row = name.parentElement;
+    while (row && row !== item && !row.contains(span)) row = row.parentElement;
+    if (!row || row === item || row.classList.contains(WRAP_CLASS) || row.querySelector('h3, #video-title')) return;
+    const a = name.getBoundingClientRect();
+    const b = span.getBoundingClientRect();
+    if (!a.height || !b.height || Math.abs(a.top - b.top) > a.height / 2) return;
+    row.classList.add(WRAP_CLASS);
+  }
+
   function renderSubs(item, info, subs) {
     const name = channelNameOf(item, info.author);
     let el = name?.nextElementSibling;
@@ -414,6 +429,7 @@
     }
     el.dataset.tfxCid = info.channelId;
     el.textContent = ` · ${subs} Abos`;
+    wrapMetaRow(item, name);
   }
 
   async function fillItem(item) {

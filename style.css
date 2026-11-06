@@ -46,3 +46,19 @@ div.tfx-desc.tfx-desc:empty {
   white-space: nowrap;
   opacity: 0.85;
 }
+
+/* ===== Infozeile mit Kanal, Abos, Aufrufen und Datum darf umbrechen (Klasse setzt content.js) ===== */
+.tfx-wrap.tfx-wrap {
+  flex-wrap: wrap !important;
+  white-space: normal !important;
+  overflow: visible !important;
+  text-overflow: clip !important;
+  -webkit-line-clamp: unset !important;
+  line-clamp: unset !important;
+  height: auto !important;
+  max-height: none !important;
+}
+.tfx-wrap.tfx-wrap > * {
+  flex-shrink: 0 !important;
+  max-width: 100% !important;
+}
